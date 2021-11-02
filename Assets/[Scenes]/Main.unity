@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &42384915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42384916}
+  m_Layer: 0
+  m_Name: GroundOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42384916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42384915}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.646, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1632276084}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +248,7 @@ GameObject:
   - component: {fileID: 1384000568}
   - component: {fileID: 1384000567}
   - component: {fileID: 1384000569}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform Layer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -871,7 +901,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1384000565}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 87ec730be6175504489dc4807319867d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -911,8 +941,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: -0.3}
-  m_Size: {x: 1.15, y: 1.5}
+  m_Offset: {x: 0, y: -0.29999995}
+  m_Size: {x: 1.0045341, y: 1.5}
   m_Direction: 0
 --- !u!50 &1632276082
 Rigidbody2D:
@@ -926,7 +956,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 10
@@ -997,7 +1027,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 42384916}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1013,8 +1044,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 791b3283f921995428ac4de4fd45f614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalForce: 0
-  verticalForce: 0
+  horizontalForce: 350
+  verticalForce: 3000
+  isGrounded: 0
+  groundRadius: 0.4
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  groundOrigin: {fileID: 42384916}
 --- !u!1 &2125800393
 GameObject:
   m_ObjectHideFlags: 0
